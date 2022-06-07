@@ -17,26 +17,22 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
     curl \
     git \
+    zsh \
+    autojump \
     python3-catkin-tools \
-    clang-format\
+    clang-format
 
 # Fetch clang-cmake tool
 RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool
+
 RUN cd /tmp/clang_tool && mkdir build && cd build \
     && cmake .. && make && make install
 
-#################
-## Install zsh ##
-#################
-RUN apt-get -y install --no-install-recommends \
-    zsh \
-    autojump
+##################
+## Copy scripts ##
+##################
 
-USER $USERNAME
+COPY ./scripts/ /tmp/scripts/
+RUN chown -R $USERNAME:$USERNAME /tmp/scripts
 
-RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-COPY ./config/docker.zsh-theme $HOME/.oh-my-zsh/themes/
-COPY ./config/.zshrc $HOME/
 ENV SHELL /bin/zsh
-
-CMD [ "zsh" ]

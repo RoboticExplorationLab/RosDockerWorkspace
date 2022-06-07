@@ -22,5 +22,6 @@
 		"tombonnike.vscode-status-bar-format-toggle",
 		"ms-iot.vscode-ros"
 	],
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+	"postCreateCommand": "sh /tmp/scripts/postCreate.sh"
 }
