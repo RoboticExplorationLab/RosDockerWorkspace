@@ -1,0 +1,26 @@
+{
+	"name": "RExHopperDocker",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"containerEnv": {
+		"DOCKER_CONTAINER_NAME": "Docker"
+	},
+	"runArgs": [
+		"--cap-add=SYS_PTRACE",
+		"--security-opt",
+		"seccomp=unconfined"
+	],
+	"settings": {
+		"terminal.integrated.defaultProfile.linux": "zsh",
+		"editor.tabSize": 2
+	},
+	"extensions": [
+		"ms-vscode.cpptools",
+		"ms-vscode.cmake-tools",
+		"xaver.clang-format",
+		"tombonnike.vscode-status-bar-format-toggle",
+		"ms-iot.vscode-ros"
+	],
+	"remoteUser": "vscode"
+}
