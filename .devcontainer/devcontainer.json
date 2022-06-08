@@ -11,6 +11,9 @@
 		"--security-opt",
 		"seccomp=unconfined"
 	],
+	"mounts": [
+		"source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind"
+	],
 	"settings": {
 		"terminal.integrated.defaultProfile.linux": "zsh",
 		"editor.tabSize": 2
