@@ -2,3 +2,7 @@ build/
 devel/
 logs/
 .catkin_tools/
+
+# Ignored. The workspace setup does not contain submodules.
+# See .gitmodules for the detailed explanation.
+/.gitmodules
