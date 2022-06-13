@@ -4,15 +4,18 @@
 		"dockerfile": "Dockerfile"
 	},
 	"containerEnv": {
-		"DOCKER_CONTAINER_NAME": "Docker"
+		"DOCKER_CONTAINER_NAME": "Docker",
+		"DISPLAY": "${localEnv:DISPLAY}"
 	},
 	"runArgs": [
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
-		"seccomp=unconfined"
+		"seccomp=unconfined",
+		"--net=host"
 	],
 	"mounts": [
-		"source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind"
+		"source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind",
+		"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,ro=true"
 	],
 	"settings": {
 		"terminal.integrated.defaultProfile.linux": "zsh",
@@ -23,7 +26,8 @@
 		"ms-vscode.cmake-tools",
 		"xaver.clang-format",
 		"tombonnike.vscode-status-bar-format-toggle",
-		"ms-iot.vscode-ros"
+		"ms-iot.vscode-ros",
+		"ms-vscode.cpptools-extension-pack"
 	],
 	"remoteUser": "vscode",
 	"postCreateCommand": "sh /tmp/scripts/postCreate.sh"
