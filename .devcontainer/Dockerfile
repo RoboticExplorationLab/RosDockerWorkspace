@@ -4,6 +4,11 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+
 ENV HOME /home/$USERNAME
 
 # Create non-root user
@@ -27,6 +32,11 @@ RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool
 
 RUN cd /tmp/clang_tool && mkdir build && cd build \
     && cmake .. && make && make install
+
+RUN cd $HOME && git clone https://github.com/deepmind/mujoco.git \
+    && cd $HOME/mujoco && mkdir build_dir && cd build_dir \
+    && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/mujoco \
+    && cmake --build . && make install
 
 ##################
 ## Copy scripts ##
