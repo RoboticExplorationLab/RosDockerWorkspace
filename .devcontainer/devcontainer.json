@@ -11,8 +11,7 @@
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined",
-		"--net=host",
-		"--runtime=nvidia"
+		"--net=host"
 	],
 	"mounts": [
 		"source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind",

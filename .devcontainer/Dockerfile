@@ -4,11 +4,6 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-ENV NVIDIA_VISIBLE_DEVICES \
-    ${NVIDIA_VISIBLE_DEVICES:-all}
-ENV NVIDIA_DRIVER_CAPABILITIES \
-    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
-
 ENV HOME /home/$USERNAME
 
 # Create non-root user
@@ -25,7 +20,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     zsh \
     autojump \
     python3-catkin-tools \
-    clang-format
+    clang-format \
+    libglfw3 \
+    libglfw3-dev
 
 # Fetch clang-cmake tool
 RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool
@@ -46,3 +43,4 @@ COPY ./scripts/ /tmp/scripts/
 RUN chown -R $USERNAME:$USERNAME /tmp/scripts
 
 ENV SHELL /bin/zsh
+
