@@ -11,7 +11,11 @@
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined",
-		"--net=host"
+		"--net=host",
+		"--device=/dev/pcanpcifd0",
+		"--device=/dev/pcanpcifd1",
+		"--device=/dev/pcanpcifd2",
+		"--device=/dev/pcanpcifd3"
 	],
 	"mounts": [
 		"source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind",
@@ -22,8 +26,6 @@
 		"editor.tabSize": 2
 	},
 	"extensions": [
-		"ms-vscode.cpptools",
-		"ms-vscode.cmake-tools",
 		"xaver.clang-format",
 		"tombonnike.vscode-status-bar-format-toggle",
 		"ms-iot.vscode-ros",
