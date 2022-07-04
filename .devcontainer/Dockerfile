@@ -30,10 +30,18 @@ RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool
 RUN cd /tmp/clang_tool && mkdir build && cd build \
     && cmake .. && make && make install
 
-RUN cd $HOME && git clone https://github.com/deepmind/mujoco.git \
-    && cd $HOME/mujoco && mkdir build_dir && cd build_dir \
-    && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/mujoco \
-    && cmake --build . && make install
+# RUN cd $HOME && git clone https://github.com/deepmind/mujoco.git \
+#     && cd $HOME/mujoco && mkdir build_dir && cd build_dir \
+#     && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/mujoco \
+#     && cmake --build . && make install
+
+RUN sudo apt install minizip ffmpeg && cd /opt/ && sudo mkdir raisim \
+    && cd $HOME && mkdir .raisim && cp activation.raisim .raisim \
+    && git clone https://github.com/raisimTech/raisimLib.git \
+    && cd $HOME/raisimLib && mkdir build_dir && cd build_dir \
+    && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/raisim -DRAISIM_EXAMPLE=ON \
+    && make install -j4 && echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/raisim/lib' >> ~/.bashrc
+
 
 ##################
 ## Copy scripts ##
