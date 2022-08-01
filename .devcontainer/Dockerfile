@@ -5,6 +5,9 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 ENV HOME /home/$USERNAME
+ENV WORKSPACE /workspaces/RosDockerWorkspace
+# prevent yes/no problem
+ENV DEBIAN_FRONTEND noninteractive  
 
 # Create non-root user
 RUN groupadd --gid ${USER_GID} ${USERNAME} \
@@ -30,12 +33,9 @@ RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool
 RUN cd /tmp/clang_tool && mkdir build && cd build \
     && cmake .. && make && make install
 
-# RUN cd $HOME && git clone https://github.com/deepmind/mujoco.git \
-#     && cd $HOME/mujoco && mkdir build_dir && cd build_dir \
-#     && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/mujoco \
-#     && cmake --build . && make install
+COPY activation.raisim $HOME/activation.raisim
 
-RUN sudo apt install minizip ffmpeg && cd /opt/ && sudo mkdir raisim \
+RUN sudo apt install -y minizip ffmpeg && cd /opt/ && sudo mkdir raisim \
     && cd $HOME && mkdir .raisim && cp activation.raisim .raisim \
     && git clone https://github.com/raisimTech/raisimLib.git \
     && cd $HOME/raisimLib && mkdir build_dir && cd build_dir \
