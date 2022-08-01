@@ -11,7 +11,8 @@
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined",
-		"--net=host"
+		"--net=host",
+		"--device=/dev/dri/card0"
 	],
 	"mounts": [
 		"source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind",
