@@ -35,7 +35,7 @@ RUN cd /tmp/clang_tool && mkdir build && cd build \
 
 COPY activation.raisim $HOME/activation.raisim
 
-RUN sudo apt install -y minizip ffmpeg && cd /opt/ && sudo mkdir raisim \
+RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers && cd /opt/ && sudo mkdir raisim \
     && cd $HOME && mkdir .raisim && cp activation.raisim .raisim \
     && git clone https://github.com/raisimTech/raisimLib.git \
     && cd $HOME/raisimLib && mkdir build_dir && cd build_dir \
