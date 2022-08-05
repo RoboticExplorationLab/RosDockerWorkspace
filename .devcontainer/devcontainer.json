@@ -11,7 +11,7 @@
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined",
-		"--net=host",
+		"--network=host",
 		"--device=/dev/dri/card0"
 	],
 	"mounts": [

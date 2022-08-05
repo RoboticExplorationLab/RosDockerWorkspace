@@ -6,8 +6,10 @@ ARG USER_GID=$USER_UID
 
 ENV HOME /home/$USERNAME
 ENV WORKSPACE /workspaces/RosDockerWorkspace
+ENV LOCAL_INSTALL /opt/raisim_build
 # prevent yes/no problem
 ENV DEBIAN_FRONTEND noninteractive  
+
 
 # Create non-root user
 RUN groupadd --gid ${USER_GID} ${USERNAME} \
@@ -35,13 +37,16 @@ RUN cd /tmp/clang_tool && mkdir build && cd build \
 
 COPY activation.raisim $HOME/activation.raisim
 
-RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers && cd /opt/ && sudo mkdir raisim \
+RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers \
+    && cd /opt/ && sudo mkdir raisim_build \
     && cd $HOME && mkdir .raisim && cp activation.raisim .raisim \
     && git clone https://github.com/raisimTech/raisimLib.git \
     && cd $HOME/raisimLib && mkdir build_dir && cd build_dir \
-    && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/raisim -DRAISIM_EXAMPLE=ON \
-    && make install -j4 && echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/raisim/lib' >> ~/.bashrc
+    && cmake .. -DCMAKE_INSTALL_PREFIX=$LOCAL_INSTALL -DRAISIM_EXAMPLE=ON -DRAISIM_PY=ON -DPYTHON_EXECUTABLE=$(python3 -c "import sys; print(sys.executable)") \
+    && make install -j4 && echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/raisim_build/lib' >> ~/.zshrc \
+    && echo 'export PYTHONPATH=$PYTHONPATH:/opt/raisim_build/lib' >> ~/.zshrc
 
+RUN sudo apt-get install -y gdb
 
 ##################
 ## Copy scripts ##
