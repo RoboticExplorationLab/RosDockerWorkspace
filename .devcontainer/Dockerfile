@@ -43,8 +43,7 @@ RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers \
     && git clone https://github.com/raisimTech/raisimLib.git \
     && cd $HOME/raisimLib && mkdir build_dir && cd build_dir \
     && cmake .. -DCMAKE_INSTALL_PREFIX=$LOCAL_INSTALL -DRAISIM_EXAMPLE=ON -DRAISIM_PY=ON -DPYTHON_EXECUTABLE=$(python3 -c "import sys; print(sys.executable)") \
-    && make install -j4 && echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/raisim_build/lib' >> ~/.zshrc \
-    && echo 'export PYTHONPATH=$PYTHONPATH:/opt/raisim_build/lib' >> ~/.zshrc
+    && make install -j4
 
 RUN sudo apt-get install -y gdb
 

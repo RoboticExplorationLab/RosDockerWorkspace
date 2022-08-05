@@ -7,3 +7,5 @@ logs/
 # Ignored. The workspace setup does not contain submodules.
 # See .gitmodules for the detailed explanation.
 /.gitmodules
+
+activation.raisim
