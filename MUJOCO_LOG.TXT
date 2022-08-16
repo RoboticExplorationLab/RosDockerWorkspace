@@ -1,0 +1,95 @@
+Wed Aug 10 15:37:23 2022
+ERROR: Load model error: Error: range[0] should be smaller than range[1] in joint 'joint_rw0' (id = 4)
+Object name = joint_rw0, id = 4, line = 71, column = -1
+
+Wed Aug 10 15:41:57 2022
+ERROR: Load model error: Error: range[0] should be smaller than range[1] in joint 'joint_rw1' (id = 5)
+Object name = joint_rw1, id = 5, line = 77, column = -1
+
+Wed Aug 10 15:42:26 2022
+ERROR: Load model error: Error: invalid control range for actuator 'q0' (id = 0)
+Object name = q0, id = 0, line = 95, column = -1
+
+Wed Aug 10 20:03:25 2022
+ERROR: Load model error: Error: range[0] should be smaller than range[1] in joint 'Joint 1' (id = 1)
+Object name = Joint 1, id = 1, line = 52, column = -1
+
+Thu Aug 11 18:45:33 2022
+ERROR: Load model error: Error: repeated name in exclude array, position 8
+Object name = exclude_base_rw1, id = 8, line = 106, column = -1
+
+Thu Aug 11 18:56:14 2022
+WARNING: Nan, Inf or huge value in QPOS at DOF 402765. The simulation is unstable. Time = 0.0170.
+
+Thu Aug 11 18:59:00 2022
+WARNING: Nan, Inf or huge value in QPOS at DOF 402765. The simulation is unstable. Time = 0.0170.
+
+Thu Aug 11 21:12:25 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 21:20:40 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 21:39:50 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 21:40:56 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 21:41:41 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 21:45:43 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 21:48:02 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 21:49:59 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 22:11:28 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 22:12:01 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 22:13:24 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 22:14:13 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 22:15:53 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 22:17:29 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Thu Aug 11 22:24:13 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Fri Aug 12 02:49:30 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Fri Aug 12 03:44:29 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Fri Aug 12 03:46:06 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Fri Aug 12 03:50:31 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Fri Aug 12 03:52:17 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.0010.
+
+Fri Aug 12 03:53:48 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.2000.
+
+Fri Aug 12 03:54:49 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.2000.
+
+Fri Aug 12 04:00:03 2022
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 0.2000.
+

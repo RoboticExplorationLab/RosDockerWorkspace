@@ -35,8 +35,8 @@ RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool
 RUN cd /tmp/clang_tool && mkdir build && cd build \
     && cmake .. && make && make install
 
+# raisim install
 COPY activation.raisim $HOME/activation.raisim
-
 RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers \
     && cd /opt/ && sudo mkdir raisim_build \
     && cd $HOME && mkdir .raisim && cp activation.raisim .raisim \
@@ -45,6 +45,13 @@ RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers \
     && cmake .. -DCMAKE_INSTALL_PREFIX=$LOCAL_INSTALL -DRAISIM_EXAMPLE=ON -DRAISIM_PY=ON -DPYTHON_EXECUTABLE=$(python3 -c "import sys; print(sys.executable)") \
     && make install -j4
 
+# mujoco install
+RUN cd $HOME && git clone https://github.com/deepmind/mujoco.git \
+    && cd $HOME/mujoco && mkdir build_dir && cd build_dir \
+    && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/mujoco \
+    && cmake --build . && make install
+
+# debugger
 RUN sudo apt-get install -y gdb
 
 ##################
