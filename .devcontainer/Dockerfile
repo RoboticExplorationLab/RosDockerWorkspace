@@ -39,28 +39,28 @@ RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool
 RUN cd /tmp/clang_tool && mkdir build && cd build \
     && cmake .. && make && make install
 
-# # Fetch PCAN driver
-# RUN curl https://www.peak-system.com/fileadmin/media/linux/files/peak-linux-driver-${PCAN_DRIVER_VERSION}.tar.gz | tar -xz  -C /tmp/
-# # Fetch PCAN basic API
-# RUN curl https://www.peak-system.com/produktcd/Develop/PC%20interfaces/Linux/PCAN-Basic_API_for_Linux/PCAN-Basic_Linux-${PCAN_BASIC_API_VERSION}.tar.gz | tar -xz  -C /tmp/
+# Fetch PCAN driver
+RUN curl https://www.peak-system.com/fileadmin/media/linux/files/peak-linux-driver-${PCAN_DRIVER_VERSION}.tar.gz | tar -xz  -C /tmp/
+# Fetch PCAN basic API
+RUN curl https://www.peak-system.com/produktcd/Develop/PC%20interfaces/Linux/PCAN-Basic_API_for_Linux/PCAN-Basic_Linux-${PCAN_BASIC_API_VERSION}.tar.gz | tar -xz  -C /tmp/
 
-# ENV PCAN_DRIVER_DIR=/tmp/peak-linux-driver-${PCAN_DRIVER_VERSION}
-# ENV PCAN_BASIC_API_DIR=/tmp/PCAN-Basic_Linux-${PCAN_BASIC_API_VERSION}
+ENV PCAN_DRIVER_DIR=/tmp/peak-linux-driver-${PCAN_DRIVER_VERSION}
+ENV PCAN_BASIC_API_DIR=/tmp/PCAN-Basic_Linux-${PCAN_BASIC_API_VERSION}
 
-# # Build PCAN driver lib
-# RUN cd $PCAN_DRIVER_DIR && make -C lib && make -C lib install && make -C test && make -C test install
+# Build PCAN driver lib
+RUN cd $PCAN_DRIVER_DIR && make -C lib && make -C lib install && make -C test && make -C test install
 
-# # Copy headers and helper tools to the systems include folder.
-# # Note: PCAN driver is installed on the host machine(outside docker). But the headers should be visible inside docker.
-# # Thus, copy required headers to system include.
-# RUN cp $PCAN_DRIVER_DIR/driver/pcan.h $PCAN_DRIVER_DIR/driver/pcanfd.h /usr/include/
-# RUN chmod 644 /usr/include/pcan.h /usr/include/pcanfd.h
+# Copy headers and helper tools to the systems include folder.
+# Note: PCAN driver is installed on the host machine(outside docker). But the headers should be visible inside docker.
+# Thus, copy required headers to system include.
+RUN cp $PCAN_DRIVER_DIR/driver/pcan.h $PCAN_DRIVER_DIR/driver/pcanfd.h /usr/include/
+RUN chmod 644 /usr/include/pcan.h /usr/include/pcanfd.h
 
-# RUN cp $PCAN_DRIVER_DIR/driver/lspcan /usr/local/bin/
-# RUN chmod 755 /usr/local/bin/lspcan
+RUN cp $PCAN_DRIVER_DIR/driver/lspcan /usr/local/bin/
+RUN chmod 755 /usr/local/bin/lspcan
 
-# # PCAN basic API
-# RUN cd ${PCAN_BASIC_API_DIR}/libpcanbasic/pcanbasic && make && make install
+# PCAN basic API
+RUN cd ${PCAN_BASIC_API_DIR}/libpcanbasic/pcanbasic && make && make install
 
 # raisim install
 COPY activation.raisim $HOME/activation.raisim
