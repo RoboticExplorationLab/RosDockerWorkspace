@@ -12,10 +12,10 @@
 		"--security-opt",
 		"seccomp=unconfined",
 		"--net=host",
-		"--device=/dev/pcanpcifd0",
-		"--device=/dev/pcanpcifd1",
-		"--device=/dev/pcanpcifd2",
-		"--device=/dev/pcanpcifd3"
+		// "--device=/dev/pcanpcifd0",
+		// "--device=/dev/pcanpcifd1",
+		// "--device=/dev/pcanpcifd2",
+		// "--device=/dev/pcanpcifd3",
 		"--device=/dev/dri/card0"
 	],
 	"mounts": [
