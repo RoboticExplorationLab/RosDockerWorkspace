@@ -78,6 +78,9 @@ RUN cd $HOME && git clone https://github.com/deepmind/mujoco.git \
     && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/mujoco \
     && cmake --build . && make install
 
+# matplotlib install
+RUN sudo apt-get install -y python3-tk python3-matplotlib python3-numpy python3.8-dev libpython3.8-dev 
+
 # debugger
 RUN sudo apt-get install -y gdb
 

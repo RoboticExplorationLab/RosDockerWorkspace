@@ -105,3 +105,105 @@ ERROR: Could not initialize GLFW
 Thu Aug 18 19:41:57 2022
 ERROR: Could not initialize GLFW
 
+Mon Aug 22 03:31:51 2022
+ERROR: Load model error: Error: unrecognized name of sensorized object in sensor 'base-attitude' (id = 0)
+Object name = base-attitude, id = 0
+
+Mon Aug 22 20:14:15 2022
+ERROR: Load model error: XML Error: Schema violation: unrecognized attribute: 'site'
+
+Element 'framequat', line 114
+
+
+Mon Aug 22 20:15:26 2022
+ERROR: Load model error: XML Error: Schema violation: unrecognized attribute: 'site'
+
+Element 'framelinvel', line 115
+
+
+Mon Aug 22 20:48:45 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 6. The simulation is unstable. Time = 0.8810.
+
+Mon Aug 22 20:51:29 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 1. The simulation is unstable. Time = 3.0280.
+
+Mon Aug 22 21:15:41 2022
+ERROR: Load model error: XML Error: Schema violation: unrecognized attribute: 'objtype'
+
+Element 'velocimeter', line 116
+
+
+Mon Aug 22 21:16:15 2022
+ERROR: Load model error: XML Error: Schema violation: unrecognized attribute: 'objtype'
+
+Element 'touch', line 118
+
+
+Mon Aug 22 21:16:33 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 1. The simulation is unstable. Time = 3.0280.
+
+Mon Aug 22 21:17:37 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 1. The simulation is unstable. Time = 3.0280.
+
+Mon Aug 22 22:09:34 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 1. The simulation is unstable. Time = 3.0280.
+
+Tue Aug 23 18:06:12 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 2.6070.
+
+Wed Aug 24 13:39:02 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 2.6070.
+
+Wed Aug 24 13:45:15 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 2.6070.
+
+Wed Aug 24 13:56:09 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 11. The simulation is unstable. Time = 2.3210.
+
+Wed Aug 24 13:59:54 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 6. The simulation is unstable. Time = 2.4500.
+
+Wed Aug 24 14:00:32 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 3. The simulation is unstable. Time = 3.3380.
+
+Wed Aug 24 14:04:25 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 12. The simulation is unstable. Time = 3.5820.
+
+Wed Aug 24 14:24:42 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 7. The simulation is unstable. Time = 2.9270.
+
+Wed Aug 24 14:25:34 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 4. The simulation is unstable. Time = 3.2300.
+
+Wed Aug 24 18:13:37 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 4.1210.
+
+Wed Aug 24 18:14:31 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 2.3940.
+
+Wed Aug 24 18:15:39 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 3.0840.
+
+Wed Aug 24 21:36:19 2022
+ERROR: Load model error: XML parse error 6:
+Error=XML_ERROR_PARSING_ELEMENT ErrorID=6 (0x6) Line number=79
+
+
+Wed Aug 24 21:40:54 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 1.0450.
+
+Wed Aug 24 21:45:42 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 3. The simulation is unstable. Time = 3.1140.
+
+Wed Aug 24 21:47:44 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 10. The simulation is unstable. Time = 0.9930.
+
+Wed Aug 24 21:51:54 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 3. The simulation is unstable. Time = 2.9990.
+
+Wed Aug 24 22:06:49 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 3. The simulation is unstable. Time = 2.9990.
+
+Wed Aug 24 22:08:28 2022
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 2.9150.
+
