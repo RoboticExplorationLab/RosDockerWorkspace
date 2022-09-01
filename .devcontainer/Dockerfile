@@ -70,16 +70,16 @@ RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers \
     && git clone https://github.com/raisimTech/raisimLib.git \
     && cd $HOME/raisimLib && mkdir build_dir && cd build_dir \
     && cmake .. -DCMAKE_INSTALL_PREFIX=$LOCAL_INSTALL -DRAISIM_EXAMPLE=ON -DRAISIM_PY=ON -DPYTHON_EXECUTABLE=$(python3 -c "import sys; print(sys.executable)") \
-    && make install -j4
+    && sudo make install -j4
 
 # mujoco install
 RUN cd $HOME && git clone https://github.com/deepmind/mujoco.git \
     && cd $HOME/mujoco && mkdir build_dir && cd build_dir \
     && cmake .. -DCMAKE_INSTALL_PREFIX=/opt/mujoco \
-    && cmake --build . && make install
+    && cmake --build . && sudo make install
 
 # matplotlib install
-RUN sudo apt-get install -y python3-tk python3-matplotlib python3-numpy python3.8-dev libpython3.8-dev 
+RUN sudo apt-get install -y python3-tk python3-matplotlib python3-numpy python3.8-dev
 
 # debugger
 RUN sudo apt-get install -y gdb
