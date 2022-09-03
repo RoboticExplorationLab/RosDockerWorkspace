@@ -1,5 +1,5 @@
 # Hack for nested git repos in vscode (https://github.com/microsoft/vscode/issues/37947)
 
-[submodule "RExHopper"]
-path = src/RExHopper
+[submodule "legged-kalman-filter"]
+path = src/legged-kalman-filter
 url = git/url/to/repo
