@@ -5,7 +5,8 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 ARG PCAN_DRIVER_VERSION=8.14.0
-ARG PCAN_BASIC_API_VERSION=4.6.1
+ARG PCAN_BASIC_API_VERSION=4.6.2
+ARG PCAN_BASIC_API_VERSION_ID=.36
 
 ENV HOME /home/$USERNAME
 ENV WORKSPACE /workspaces/RosDockerWorkspace
@@ -45,7 +46,7 @@ RUN curl https://www.peak-system.com/fileadmin/media/linux/files/peak-linux-driv
 RUN curl https://www.peak-system.com/produktcd/Develop/PC%20interfaces/Linux/PCAN-Basic_API_for_Linux/PCAN-Basic_Linux-${PCAN_BASIC_API_VERSION}.tar.gz | tar -xz  -C /tmp/
 
 ENV PCAN_DRIVER_DIR=/tmp/peak-linux-driver-${PCAN_DRIVER_VERSION}
-ENV PCAN_BASIC_API_DIR=/tmp/PCAN-Basic_Linux-${PCAN_BASIC_API_VERSION}
+ENV PCAN_BASIC_API_DIR=/tmp/PCAN-Basic_Linux-${PCAN_BASIC_API_VERSION}${PCAN_BASIC_API_VERSION_ID}
 
 # Build PCAN driver lib
 RUN cd $PCAN_DRIVER_DIR && make -C lib && make -C lib install && make -C test && make -C test install
