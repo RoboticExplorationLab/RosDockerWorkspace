@@ -63,15 +63,15 @@ RUN chmod 755 /usr/local/bin/lspcan
 # PCAN basic API
 RUN cd ${PCAN_BASIC_API_DIR}/libpcanbasic/pcanbasic && make && make install
 
-# raisim install
-COPY activation.raisim $HOME/activation.raisim
-RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers \
-    && cd /opt/ && sudo mkdir raisim_build \
-    && cd $HOME && mkdir .raisim && cp activation.raisim .raisim \
-    && git clone https://github.com/raisimTech/raisimLib.git \
-    && cd $HOME/raisimLib && mkdir build_dir && cd build_dir \
-    && cmake .. -DCMAKE_INSTALL_PREFIX=$LOCAL_INSTALL -DRAISIM_EXAMPLE=ON -DRAISIM_PY=ON -DPYTHON_EXECUTABLE=$(python3 -c "import sys; print(sys.executable)") \
-    && sudo make install -j4
+# # raisim install
+# COPY activation.raisim $HOME/activation.raisim
+# RUN sudo apt install -y minizip ffmpeg mesa-vulkan-drivers \
+#     && cd /opt/ && sudo mkdir raisim_build \
+#     && cd $HOME && mkdir .raisim && cp activation.raisim .raisim \
+#     && git clone https://github.com/raisimTech/raisimLib.git \
+#     && cd $HOME/raisimLib && mkdir build_dir && cd build_dir \
+#     && cmake .. -DCMAKE_INSTALL_PREFIX=$LOCAL_INSTALL -DRAISIM_EXAMPLE=ON -DRAISIM_PY=ON -DPYTHON_EXECUTABLE=$(python3 -c "import sys; print(sys.executable)") \
+#     && sudo make install -j4
 
 # mujoco install
 RUN cd $HOME && git clone https://github.com/deepmind/mujoco.git \
@@ -85,6 +85,11 @@ RUN sudo apt-get install -y python3-tk python3-matplotlib python3-numpy python3.
 # debugger
 RUN sudo apt-get install -y gdb
 
+# 3DMCX5-AHRS IMU
+# https://www.microstrain.com/inertial-sensors/3dm-cx5-25
+# https://github.com/LORD-MicroStrain/MSCL
+RUN curl -sLO https://github.com/LORD-MicroStrain/MSCL/releases/latest/download/c++-mscl_64.3.0_amd64.deb \
+    && sudo dpkg -i c++-mscl_64.3.0_amd64.deb && sudo apt install -y -f
 ##################
 ## Copy scripts ##
 ##################
