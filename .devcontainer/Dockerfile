@@ -90,6 +90,14 @@ RUN sudo apt-get install -y gdb
 # https://github.com/LORD-MicroStrain/MSCL
 RUN curl -sLO https://github.com/LORD-MicroStrain/MSCL/releases/latest/download/c++-mscl_64.3.0_amd64.deb \
     && sudo dpkg -i c++-mscl_64.3.0_amd64.deb && sudo apt install -y -f
+
+# Foot IMU (mraa)
+# https://github.com/up-board/up-community/wiki/MRAA
+RUN sudo apt install -y software-properties-common \
+    && sudo add-apt-repository ppa:up-division/mraa \
+    && sudo apt-get update \
+    && sudo apt-get install mraa-tools mraa-examples libmraa2 libmraa-dev libupm-dev libupm2 upm-examples
+    
 ##################
 ## Copy scripts ##
 ##################
