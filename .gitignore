@@ -11,3 +11,5 @@ logs/
 activation.raisim
 MUJOCO_LOG.TXT
 *.log
+offsets.txt
+.zhistory-recover
