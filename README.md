@@ -13,4 +13,9 @@ Make sure you have [Docker](https://www.docker.com/) installed. If not, follow t
 
 Click `Open a Remote Window` at the left-bottom of the editor or `CTL + SHIT + p` and type `Open Folder in Container`. 
 
-
+## Fix "zsh: corrupt history file" error
+```
+mv /home/hopper/.zsh_history .zhistory-recover 
+strings -eS .zhistory-recover > /home/hopper/.zsh_history
+fc -R /home/hopper/.zsh_history
+```
