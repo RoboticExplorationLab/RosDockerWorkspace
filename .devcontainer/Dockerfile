@@ -85,12 +85,6 @@ RUN sudo apt-get install -y python3-tk python3-matplotlib python3-numpy python3.
 # debugger
 RUN sudo apt-get install -y gdb
 
-# 3DMCX5-AHRS IMU
-# https://www.microstrain.com/inertial-sensors/3dm-cx5-25
-# https://github.com/LORD-MicroStrain/MSCL
-RUN curl -sLO https://github.com/LORD-MicroStrain/MSCL/releases/latest/download/c++-mscl_64.3.0_amd64.deb \
-    && sudo dpkg -i c++-mscl_64.3.0_amd64.deb && sudo apt install -y -f
-
 # Foot IMU (mraa)
 # https://github.com/up-board/up-community/wiki/MRAA
 RUN sudo apt install -y software-properties-common \
