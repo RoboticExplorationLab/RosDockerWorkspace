@@ -13,3 +13,4 @@ MUJOCO_LOG.TXT
 *.log
 offsets.txt
 .zhistory-recover
+plots/
