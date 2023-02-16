@@ -10,7 +10,7 @@ ARG PCAN_BASIC_API_VERSION_ID=.36
 
 ENV HOME /home/$USERNAME
 ENV WORKSPACE /workspaces/RosDockerWorkspace
-ENV LOCAL_INSTALL /opt/raisim_build
+# ENV LOCAL_INSTALL /opt/raisim_build
 # prevent yes/no problem
 ENV DEBIAN_FRONTEND noninteractive  
 
@@ -33,6 +33,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     libpopt-dev \
     libglfw3 \
     libglfw3-dev
+
+# for mujoco GUI
+RUN export DISPLAY=:0
 
 # Fetch clang-cmake tool
 RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool
@@ -91,7 +94,7 @@ RUN sudo apt install -y software-properties-common \
     && sudo add-apt-repository ppa:up-division/mraa \
     && sudo apt-get update \
     && sudo apt-get install mraa-tools mraa-examples libmraa2 libmraa-dev libupm-dev libupm2 upm-examples
-    
+
 ##################
 ## Copy scripts ##
 ##################
