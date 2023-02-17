@@ -12,8 +12,7 @@ ENV HOME /home/$USERNAME
 ENV WORKSPACE /workspaces/RosDockerWorkspace
 # ENV LOCAL_INSTALL /opt/raisim_build
 # prevent yes/no problem
-ENV DEBIAN_FRONTEND noninteractive  
-
+ENV DEBIAN_FRONTEND noninteractive
 
 # Create non-root user
 RUN groupadd --gid ${USER_GID} ${USERNAME} \
@@ -35,7 +34,15 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     libglfw3-dev
 
 # for mujoco GUI
-RUN export DISPLAY=:0
+# RUN export DISPLAY=:0
+
+# RUN apt-get install -y x11vnc xvfb 
+# RUN mkdir ~/.vnc
+# RUN x11vnc -storepasswd 1234 ~/.vnc/passwd
+# COPY entrypoint.sh /entrypoint.sh
+# ENTRYPOINT ["/entrypoint.sh"]
+
+# EXPOSE 5920
 
 # Fetch clang-cmake tool
 RUN git clone https://github.com/Huoleit/cmake_clang_tools.git /tmp/clang_tool

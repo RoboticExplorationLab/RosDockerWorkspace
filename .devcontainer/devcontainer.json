@@ -5,30 +5,49 @@
 	},
 	"containerEnv": {
 		"DOCKER_CONTAINER_NAME": "Docker",
-		// "DISPLAY": "${localEnv:DISPLAY}"
-		"DISPLAY": "host.docker.internal:0.0",
-		"LIBGL_ALWAYS_INDIRECT": "0"
+		// "DISPLAY": "${localEnv:DISPLAY}",
+		// "DISPLAY": "host.docker.internal:0.0",
+		// "LIBGL_ALWAYS_INDIRECT": "0"
+		"DISPLAY": ":0",
+		"QT_X11_NO_MITSHM": "1",
+		"NVIDIA_VISIBLE_DEVICES": "ALL",
+		"NVIDIA_DRIVER_CAPABILITIES": "compute,utility,graphics"
 	},
 	"runArgs": [
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined",
-		"--net=host"
+		"--network=host",
+		"--privileged",
+		"--cap-add=IPC_LOCK",
+		"--cap-add=sys_nice",
+		"-e",
+		"DISPLAY",
+		"-e",
+		"XAUTHORITY",
+		"-v",
+		"/tmp/.docker.xauth:/tmp/.docker.xauth"
 		// "--device=/dev/dri/card0"
 		// "--device=/dev/pcanpcifd0",
 		// "--device=/dev/pcanpcifd1",
 		// "--device=/dev/pcanpcifd2",
 		// "--device=/dev/pcanpcifd3"
 	],
+	// "appPort": [
+	// 	"5920:5920"
+	// ],
+	"remoteUser": "vscode",
+	"initializeCommand": "sh .devcontainer/configure_xauth.bash; echo $DISPLAY $XAUTHORITY",
 	"mounts": [
-		"source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind"
+		// "source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind",
 		// "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,ro=true"
+		"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
 	],
-	"settings": {
+	"customizations/vscode/settings": {
 		"terminal.integrated.defaultProfile.linux": "zsh",
 		"editor.tabSize": 2
 	},
-	"extensions": [
+	"customizations/vscode/extensions": [
 		"ms-vscode.cpptools",
 		"ms-vscode.cmake-tools",
 		"xaver.clang-format",
@@ -36,6 +55,6 @@
 		"ms-iot.vscode-ros",
 		"ms-vscode.cpptools-extension-pack"
 	],
-	"remoteUser": "vscode",
+	// "remoteUser": "vscode",
 	"postCreateCommand": "sh /tmp/scripts/postCreate.sh"
 }
