@@ -6,18 +6,23 @@
 	"containerEnv": {
 		"DOCKER_CONTAINER_NAME": "Docker",
 		// "DISPLAY": "${localEnv:DISPLAY}",
-		// "DISPLAY": "host.docker.internal:0.0",
-		// "LIBGL_ALWAYS_INDIRECT": "0"
-		"DISPLAY": ":0",
+		"DISPLAY": "host.docker.internal:0.0",
+		"LIBGL_ALWAYS_INDIRECT": "0",
+		// "DISPLAY": ":0",
 		"QT_X11_NO_MITSHM": "1",
 		"NVIDIA_VISIBLE_DEVICES": "ALL",
 		"NVIDIA_DRIVER_CAPABILITIES": "compute,utility,graphics"
 	},
 	"runArgs": [
+		// "--runtime=nvidia",
+		"--gpus",
+		// "device=0",
+		"all",
+		"--device=/dev/fb0",
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined",
-		"--network=host",
+		"--net=host",
 		"--privileged",
 		"--cap-add=IPC_LOCK",
 		"--cap-add=sys_nice",
@@ -25,21 +30,21 @@
 		"DISPLAY",
 		"-e",
 		"XAUTHORITY",
+		// "-t",
+		// "nvidia/cuda"
 		"-v",
-		"/tmp/.docker.xauth:/tmp/.docker.xauth"
+		"/tmp/.docker.xauth:/tmp/.docker.xauth",
+		// "nvidia/cuda:11.8.0-base-ubuntu22.04",
 		// "--device=/dev/dri/card0"
 		// "--device=/dev/pcanpcifd0",
 		// "--device=/dev/pcanpcifd1",
 		// "--device=/dev/pcanpcifd2",
 		// "--device=/dev/pcanpcifd3"
 	],
-	// "appPort": [
-	// 	"5920:5920"
-	// ],
 	"remoteUser": "vscode",
 	"initializeCommand": "sh .devcontainer/configure_xauth.bash; echo $DISPLAY $XAUTHORITY",
 	"mounts": [
-		// "source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind",
+		"source=${localWorkspaceFolder}/.devcontainer/commandhistory,target=/commandhistory,type=bind",
 		// "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,ro=true"
 		"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"
 	],
